@@ -9,14 +9,14 @@ services:
       MYSQL_USER: ${DATABASE_USERNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - "${DATABASE_PORT}:3306"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - my_network
+      - infrastructure
 
 volumes:
   mysql_data:
 
 networks:
-  my_network:
+  infrastructure:
