@@ -6,5 +6,15 @@
     <title>IMDAZ - Gerenciamento de Estudantes</title>
   </head>
 
-  <body></body>
+  <body>
+    {{#if students}}
+      <ul>
+        {{#each students}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>Não há registros de estudantes para serem exibidos.</p>
+    {{/if}}
+  </body>
 </html>
