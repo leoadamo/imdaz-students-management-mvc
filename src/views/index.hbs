@@ -3,18 +3,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>IMDAZ - Gerenciamento de Estudantes</title>
+    <title>IMDAZ - Gerenciamento de Estudantes | Página Inicial</title>
   </head>
 
   <body>
-    {{#if students}}
-      <ul>
-        {{#each students}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>Não há registros de estudantes para serem exibidos.</p>
-    {{/if}}
+    <main>
+      <h1>{{ title }}</h1>
+
+      <p>{{ description }}</p>
+
+      <section>
+        {{#if students}}
+          <ul>
+            {{#each students}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p>Não há registros de estudantes para serem exibidos.</p>
+        {{/if}}
+      </section>
+
+      <section>
+        <p>
+          <a href="/turmas">Clique aqui</a> para criar uma nova turma.
+        </p>
+
+        <p>
+          <a href="/alunos">Clique aqui</a> para matricular um novo aluno.
+        </p>
+      </section>
+    </main>
   </body>
 </html>

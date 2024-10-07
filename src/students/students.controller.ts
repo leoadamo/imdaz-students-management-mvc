@@ -11,13 +11,35 @@ import type { IStudents } from './types';
 export class StudentsController {
   constructor(private studentsService: StudentsService) {}
 
-  @Get()
+  @Get('/')
   @Render('index')
-  async root(): Promise<IStudents> {
+  async getStudents(): Promise<IStudents> {
     const students = await this.studentsService.getStudents();
 
     return {
+      title: 'Listagem de alunos',
+      description: 'Consulte informações dos alunos matriculados.',
       students,
+    };
+  }
+
+  @Get('/alunos')
+  @Render('register')
+  createStudents() {
+    return {
+      title: 'Matrícula de alunos',
+      description:
+        'Preencha o formulário de matrícula para registrar um novo aluno no instituto.',
+    };
+  }
+
+  @Get('/turmas')
+  @Render('classrooms')
+  createClasses() {
+    return {
+      title: 'Cadastro de turmas',
+      description:
+        'Preencha as informações necessárias para criar uma nova turma.',
     };
   }
 }
