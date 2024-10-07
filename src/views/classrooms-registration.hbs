@@ -7,10 +7,10 @@
     <link href="/css/main.css" rel="stylesheet">
   </head>
 
-  <body>
-    <main>
-      <h1>{{ title }}</h1>
-      <p>{{ description }}</p>
+  <body class="bg-neutral-200 h-screen w-screen p-6 flex flex-col items-center justify-center m-auto">
+    <main class="w-full max-w-[800px] m-auto">
+      <h1 class="text-3xl font-bold text-center">{{ title }}</h1>
+      <p class="text-lg text-center text-sky-800">{{ description }}</p>
 
       {{#if response}}
         <ul>
@@ -32,36 +32,39 @@
           </ul>
         </nav>
       {{else}}
-        <form action="/turmas/cadastro" method="post" name="registration-form">
-          <div>
-            <span>Nome:</span>
-            <input id="name" name="name" type="text" autocomplete="off" />
+        <form action="/turmas/cadastro" method="post" name="registration-form" class="bg-white px-10 py-8 rounded-lg shadow mt-6">
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Nome:</label>
+            <input id="name" name="name" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
           </div>
 
-          <div>
-            <span>Descrição</span>
-            <input id="description" name="description" type="text" autocomplete="off" />
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Descrição</label>
+            <input id="description" name="description" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
           </div>
           
-          <div>
-            <span>Turno</span>
-            <input id="period" name="period" type="period" autocomplete="off" />
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Turno</label>
+            <input id="period" name="period" type="period" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Data de início</label>
+            <input id="start_date" name="start_date" type="date" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
           </div>
 
           <div>
-            <span>Data de início</span>
-            <input id="start_date" name="start_date" type="date" autocomplete="off" />
+            <label class="block mb-1 font-bold text-sky-800">Data de término</label>
+            <input id="end_date" name="end_date" type="date" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
           </div>
 
-          <div>
-            <span>Data de término</span>
-            <input id="end_date" name="end_date" type="date" autocomplete="off" />
-          </div>
-
-          <button type="submit" aria-label="Cadastrar turma">
+          <button type="submit" aria-label="Cadastrar turma" class="mt-8 block w-full bg-sky-700 text-white font-bold p-4 rounded">
             Cadastrar turma
           </button>
         </form>
+        <a href="/" class="mt-6 inline-block border border-sky-700 text-sky-700 bg-white font-bold px-8 py-4 rounded">
+          Voltar
+        </a>
       {{/if}}
     </main>
   </body>
