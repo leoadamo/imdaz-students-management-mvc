@@ -15,12 +15,40 @@
       <section>
         {{#if response}}
           {{#each response}}
-            <ul class="bg-white p-6 mt-6 rounded shadow">
-              <li class="text-sky-800 font-bold text-lg mb-3">Aluno:</li>
-              {{#each this}}
-                <li class="border-b border-gray-300 mb-2">{{this}}</li>
-              {{/each}}
-            </ul> 
+            <div class="bg-white p-6 mt-6 rounded shadow">
+              <ul>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Nome:</span> {{name}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Gênero:</span> {{gender}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Etnia:</span> {{ethnicity}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Turno:</span> {{grade}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Data de Nascimento:</span> {{date_of_birth}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Endereço:</span> {{address}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Bairro:</span> {{neighborhood}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">CPF:</span> {{cpf}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Nome do(a) responsável:</span> {{tutor_name}}
+                </li>
+                <li class="border-b border-gray-300 mb-2">
+                  <span class="text-sky-800 font-bold text-lg">Grau de parentesco do(a) responsável:</span> {{tutor_kindship}}
+                </li>
+              </ul>
+            </div>
           {{/each}}
         {{else}}
           <p class="mt-6 text-lg font-bold">Não há registros de estudantes para serem exibidos.</p>
