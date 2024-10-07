@@ -12,27 +12,19 @@
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
 
-      <section>
-        {{#if students}}
-          <ul>
-            {{#each students}}
-              <li>{{this}}</li>
-            {{/each}}
-          </ul>
-        {{else}}
-          <p>Não há registros de estudantes para serem exibidos.</p>
-        {{/if}}
-      </section>
-
-      <section>
-        <p>
-          <a href="/turmas">Clique aqui</a> para criar uma nova turma.
-        </p>
-
-        <p>
-          <a href="/alunos">Clique aqui</a> para matricular um novo aluno.
-        </p>
-      </section>
+      <nav>
+        <ul>
+          <li>
+            <a href="/alunos">Clique aqui</a> para consultar a relação de alunos cadastrados.
+          </li>
+          <li>
+            <a href="/turmas">Clique aqui</a> para criar uma nova turma.
+          </li>
+          <li>
+            <a href="/matricula">Clique aqui</a> para acessar o formulário de matrícula.
+          </li>
+        </ul>
+      </nav>
     </main>
   </body>
 </html>

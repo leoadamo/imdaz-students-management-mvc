@@ -13,7 +13,17 @@ export class StudentsController {
 
   @Get('/')
   @Render('index')
-  async view(): Promise<IStudents> {
+  view(): IStudents {
+    return {
+      title: 'IMDAZ - Sistema de Gerenciamento de Alunos',
+      description:
+        'Aqui você pode gerenciar alunos e turmas de uma maneira simples e intuitiva.',
+    };
+  }
+
+  @Get('/alunos')
+  @Render('students')
+  async getStudents(): Promise<IStudents> {
     const students = await this.studentsService.getStudents();
 
     return {
@@ -23,7 +33,7 @@ export class StudentsController {
     };
   }
 
-  @Get('/alunos')
+  @Get('/matricula')
   @Render('register')
   createStudents() {
     return {

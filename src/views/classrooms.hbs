@@ -8,46 +8,48 @@
   </head>
 
   <body>
-    <h1>{{ title }}</h1>
-    <p>{{ description }}</p>
+    <main>
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
 
-    {{#if response}}
-      <ul>
-        {{#each response}}
-          <li>{{@key}}: {{this}}</li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <form action="/classrooms" method="post">
-        <div>
-          <span>Nome:</span>
-          <input id="name" name="name" type="text" autocomplete="off" />
-        </div>
+      {{#if response}}
+        <ul>
+          {{#each response}}
+            <li>{{@key}}: {{this}}</li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <form action="/classrooms" method="post" name="registration-form">
+          <div>
+            <span>Nome:</span>
+            <input id="name" name="name" type="text" autocomplete="off" />
+          </div>
 
-        <div>
-          <span>Descrição</span>
-          <input id="description" name="description" type="text" autocomplete="off" />
-        </div>
-        
-        <div>
-          <span>Turno</span>
-          <input id="period" name="period" type="period" autocomplete="off" />
-        </div>
+          <div>
+            <span>Descrição</span>
+            <input id="description" name="description" type="text" autocomplete="off" />
+          </div>
+          
+          <div>
+            <span>Turno</span>
+            <input id="period" name="period" type="period" autocomplete="off" />
+          </div>
 
-        <div>
-          <span>Data de início</span>
-          <input id="start_date" name="start_date" type="date" autocomplete="off" />
-        </div>
+          <div>
+            <span>Data de início</span>
+            <input id="start_date" name="start_date" type="date" autocomplete="off" />
+          </div>
 
-        <div>
-          <span>Data de término</span>
-          <input id="end_date" name="end_date" type="date" autocomplete="off" />
-        </div>
+          <div>
+            <span>Data de término</span>
+            <input id="end_date" name="end_date" type="date" autocomplete="off" />
+          </div>
 
-        <button type="submit" aria-label="Cadastrar turma">
-          Cadastrar turma
-        </button>
-      </form>
-    {{/if}}
+          <button type="submit" aria-label="Cadastrar turma">
+            Cadastrar turma
+          </button>
+        </form>
+      {{/if}}
+    </main>
   </body>
 </html>
