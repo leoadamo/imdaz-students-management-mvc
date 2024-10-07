@@ -13,7 +13,7 @@ export class StudentsController {
 
   @Get('/')
   @Render('index')
-  async getStudents(): Promise<IStudents> {
+  async view(): Promise<IStudents> {
     const students = await this.studentsService.getStudents();
 
     return {

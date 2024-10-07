@@ -16,11 +16,11 @@ export class CreateStudentDto {
   name: string;
 
   @IsNotEmpty()
-  @IsEnum({ entity: EGenders })
+  @IsEnum(EGenders)
   gender: EGenders;
 
   @IsNotEmpty()
-  @IsEnum({ entity: EEthnicity })
+  @IsEnum(EEthnicity)
   ethnicity: EEthnicity;
 
   @IsNotEmpty()

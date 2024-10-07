@@ -4,19 +4,19 @@ import { Student } from '../student.entity';
 export interface IStudents {
   title: string;
   description: string;
-  students: Student[];
+  students?: Student | Student[];
 }
 
 export enum EGenders {
-  Male = 'male',
-  Female = 'female',
-  Other = 'other',
+  Male = 'Masculino',
+  Female = 'Feminino',
+  Other = 'Outro',
 }
 
 export enum EEthnicity {
-  White = 'white',
-  Black = 'black',
-  Asian = 'asian',
-  Indium = 'indium',
-  Other = 'other',
+  White = 'Branco',
+  Black = 'Negro',
+  Asian = 'Pardo',
+  Indium = 'índio',
+  Other = 'Outro',
 }

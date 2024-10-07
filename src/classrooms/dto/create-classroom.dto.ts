@@ -12,7 +12,7 @@ export class CreateClassroomDto {
   description: string;
 
   @IsNotEmpty()
-  @IsEnum({ entity: EPeriods })
+  @IsEnum(EPeriods)
   period: EPeriods;
 
   @IsNotEmpty()
