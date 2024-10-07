@@ -7,23 +7,27 @@
     <link href="/css/main.css" rel="stylesheet">
   </head>
 
-  <body>
-    <main>
-      <h1>{{ title }}</h1>
-      <p>{{ description }}</p>
+  <body class="bg-neutral-200 min-h-screen min-w-screen py-6 flex flex-col items-center justify-center m-auto">
+    <main class="w-full max-w-[800px] m-auto">
+      <h1 class="text-3xl font-bold text-center">{{ title }}</h1>
+      <p class="text-lg text-center text-sky-800">{{ description }}</p>
       
       <section>
         {{#if response}}
-          <ul>
-            {{#each response}}
+          {{#each response}}
+            <ul class="bg-white p-6 mt-6 rounded shadow">
+              <li class="text-sky-800 font-bold text-lg mb-3">Aluno:</li>
               {{#each this}}
-                <li>{{this}}</li>
+                <li class="border-b border-gray-300 mb-2">{{this}}</li>
               {{/each}}
-            {{/each}}
-          </ul>
+            </ul> 
+          {{/each}}
         {{else}}
-          <p>Não há registros de estudantes para serem exibidos.</p>
+          <p class="mt-6 text-lg font-bold">Não há registros de estudantes para serem exibidos.</p>
         {{/if}}
+        <a href="/" class="mt-6 inline-block border border-sky-700 text-sky-700 bg-white font-bold px-8 py-4 rounded">
+          Voltar
+        </a>
       </section>
     </main>
   </body>
