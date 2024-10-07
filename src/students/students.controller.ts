@@ -32,14 +32,4 @@ export class StudentsController {
         'Preencha o formulário de matrícula para registrar um novo aluno no instituto.',
     };
   }
-
-  @Get('/turmas')
-  @Render('classrooms')
-  createClasses() {
-    return {
-      title: 'Cadastro de turmas',
-      description:
-        'Preencha as informações necessárias para criar uma nova turma.',
-    };
-  }
 }
