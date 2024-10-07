@@ -4,7 +4,7 @@ import { Student } from '../student.entity';
 export interface IStudents {
   title: string;
   description: string;
-  students?: Student | Student[];
+  response?: Student | Student[];
 }
 
 export enum EGenders {

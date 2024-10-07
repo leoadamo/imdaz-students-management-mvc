@@ -13,10 +13,12 @@
       <p>{{ description }}</p>
       
       <section>
-        {{#if students}}
+        {{#if response}}
           <ul>
-            {{#each students}}
-              <li>{{this}}</li>
+            {{#each response}}
+              {{#each this}}
+                <li>{{this}}</li>
+              {{/each}}
             {{/each}}
           </ul>
         {{else}}

@@ -21,8 +21,8 @@ export class Student {
   @Column({ type: 'date' })
   date_of_birth: Date;
 
-  @Column({ type: 'bool' })
-  disability: boolean;
+  @Column()
+  disability: string;
 
   @Column({ length: 50, nullable: true })
   phone: string;
@@ -30,8 +30,8 @@ export class Student {
   @Column({ nullable: true })
   grade: string;
 
-  @Column({ type: 'bool' })
-  literate: boolean;
+  @Column()
+  literate: string;
 
   @Column({ length: 100 })
   address: string;
@@ -51,8 +51,8 @@ export class Student {
   @Column()
   children: number;
 
-  @Column({ type: 'bool' })
-  brother_or_sis_registered: boolean;
+  @Column()
+  brother_or_sis_registered: string;
 
   @Column({ length: 50, nullable: true })
   nis: string;
@@ -69,9 +69,9 @@ export class Student {
   @Column()
   earnings: number;
 
-  @Column({ type: 'bool' })
-  government_benefits: boolean;
+  @Column()
+  government_benefits: string;
 
-  @Column({ type: 'bool' })
-  image_rights: boolean;
+  @Column()
+  image_rights: string;
 }

@@ -1,8 +1,14 @@
 // DEPENDENCIES
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Post, Body, Render } from '@nestjs/common';
+
+// ENTITIES
+import { Student } from './student.entity';
 
 // SERVICES
 import { StudentsService } from './students.service';
+
+// DTO
+import { CreateStudentDto } from './dto/create-student.dto';
 
 // TYPES
 import type { IStudents } from './types';
@@ -13,7 +19,7 @@ export class StudentsController {
 
   @Get('/')
   @Render('index')
-  view(): IStudents {
+  root(): IStudents {
     return {
       title: 'IMDAZ - Sistema de Gerenciamento de Alunos',
       description:
@@ -29,17 +35,33 @@ export class StudentsController {
     return {
       title: 'Listagem de alunos',
       description: 'Consulte informações dos alunos matriculados.',
-      students,
+      response: students,
     };
   }
 
   @Get('/alunos/matricula')
   @Render('students-registration')
-  createStudents() {
+  view() {
     return {
       title: 'Matrícula de alunos',
       description:
         'Preencha o formulário de matrícula para registrar um novo aluno no instituto.',
+    };
+  }
+
+  @Post('/alunos/matricula')
+  @Render('students-registration')
+  async createStudents(
+    @Body() createStudentDto: CreateStudentDto,
+  ): Promise<IStudents> {
+    const response: Student =
+      await this.studentsService.createStudent(createStudentDto);
+
+    return {
+      title: 'Matrícula de alunos',
+      description:
+        'Cadastro efetuado com sucesso! Confira alguns detalhes do novo turma.',
+      response,
     };
   }
 }

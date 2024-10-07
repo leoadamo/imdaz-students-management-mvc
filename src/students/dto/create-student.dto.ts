@@ -1,12 +1,5 @@
 // DEPENDENCIES
-import {
-  IsNotEmpty,
-  IsISO8601,
-  IsPhoneNumber,
-  IsEnum,
-  IsBoolean,
-  IsOptional,
-} from 'class-validator';
+import { IsNotEmpty, IsISO8601, IsEnum, IsOptional } from 'class-validator';
 
 // TYPES
 import { EEthnicity, EGenders } from '../types';
@@ -28,18 +21,16 @@ export class CreateStudentDto {
   date_of_birth: Date;
 
   @IsNotEmpty()
-  @IsBoolean()
-  disability: boolean;
+  disability: string;
 
-  @IsPhoneNumber('BR')
+  @IsOptional()
   phone: string;
 
   @IsOptional()
   grade: string;
 
   @IsNotEmpty()
-  @IsBoolean()
-  literate: boolean;
+  literate: string;
 
   @IsNotEmpty()
   address: string;
@@ -60,8 +51,7 @@ export class CreateStudentDto {
   children: number;
 
   @IsNotEmpty()
-  @IsBoolean()
-  brother_or_sis_registered: boolean;
+  brother_or_sis_registered: string;
 
   @IsOptional()
   nis: string;
@@ -79,10 +69,8 @@ export class CreateStudentDto {
   earnings: number;
 
   @IsNotEmpty()
-  @IsBoolean()
-  government_benefits: boolean;
+  government_benefits: string;
 
   @IsNotEmpty()
-  @IsBoolean()
-  image_rights: boolean;
+  image_rights: string;
 }
