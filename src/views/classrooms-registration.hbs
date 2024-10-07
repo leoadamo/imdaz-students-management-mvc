@@ -14,11 +14,21 @@
 
       {{#if response}}
         <ul class="bg-white p-6 mt-6 rounded shadow">
-          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">Nome:</span> {{ response.name }}</li>
-          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">Descrição:</span> {{ response.description }}</li>
-          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">Turno:</span> {{ response.period }}</li>
-          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">Início:</span> {{ response.start_date }}</li>
-          <li><span class="text-sky-800 font-bold text-lg">Término:</span> {{ response.end_date }}</li>
+          <li class="border-b border-gray-300 mb-2">
+            <span class="text-sky-800 font-bold text-lg">Nome:</span> {{ response.name }}
+          </li>
+          <li class="border-b border-gray-300 mb-2">
+            <span class="text-sky-800 font-bold text-lg">Descrição:</span> {{ response.description }}
+          </li>
+          <li class="border-b border-gray-300 mb-2">
+            <span class="text-sky-800 font-bold text-lg">Turno:</span> {{ response.period }}
+          </li>
+          <li class="border-b border-gray-300 mb-2">
+            <span class="text-sky-800 font-bold text-lg">Início:</span> {{ response.start_date }}
+          </li>
+          <li>
+            <span class="text-sky-800 font-bold text-lg">Término:</span> {{ response.end_date }}
+          </li>
         </ul>
         
         <nav>
