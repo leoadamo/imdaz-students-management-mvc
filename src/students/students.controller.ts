@@ -33,8 +33,8 @@ export class StudentsController {
     };
   }
 
-  @Get('/matricula')
-  @Render('register')
+  @Get('/alunos/matricula')
+  @Render('students-registration')
   createStudents() {
     return {
       title: 'Matrícula de alunos',

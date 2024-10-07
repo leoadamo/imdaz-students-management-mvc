@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IMDAZ - Gerenciamento de Estudantes | Turmas > Cadastro</title>
+    <link href="/css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <main>
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+
+      {{#if response}}
+        <ul>
+          <li>Nome: {{ response.name }}</li>
+          <li>Descrição: {{ response.description }}</li>
+          <li>Turno: {{ response.period }}</li>
+          <li>Início: {{ response.start_date }}</li>
+          <li>Término: {{ response.end_date }}</li>
+        </ul>
+        
+        <nav>
+          <ul>
+            <li>
+              <a href="/turmas">Listar todas as turmas</a>
+            </li>
+            <li>
+              <a href="/turmas/cadastro">Cadastrar nova turma</a>
+            </li>
+          </ul>
+        </nav>
+      {{else}}
+        <form action="/turmas/cadastro" method="post" name="registration-form">
+          <div>
+            <span>Nome:</span>
+            <input id="name" name="name" type="text" autocomplete="off" />
+          </div>
+
+          <div>
+            <span>Descrição</span>
+            <input id="description" name="description" type="text" autocomplete="off" />
+          </div>
+          
+          <div>
+            <span>Turno</span>
+            <input id="period" name="period" type="period" autocomplete="off" />
+          </div>
+
+          <div>
+            <span>Data de início</span>
+            <input id="start_date" name="start_date" type="date" autocomplete="off" />
+          </div>
+
+          <div>
+            <span>Data de término</span>
+            <input id="end_date" name="end_date" type="date" autocomplete="off" />
+          </div>
+
+          <button type="submit" aria-label="Cadastrar turma">
+            Cadastrar turma
+          </button>
+        </form>
+      {{/if}}
+    </main>
+  </body>
+</html>

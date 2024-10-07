@@ -17,6 +17,20 @@ export class ClassroomsController {
 
   @Get('/turmas')
   @Render('classrooms')
+  async getClassrooms(): Promise<IClassroom> {
+    const response = await this.classroomsService.getClassrooms();
+
+    const classrooms = response.map((data) => ({ ...data }));
+
+    return {
+      title: 'Listagem de turmas',
+      description: 'Confira as informações das turmas cadastradas no sistema.',
+      response: classrooms,
+    };
+  }
+
+  @Get('/turmas/cadastro')
+  @Render('classrooms-registration')
   view(): IClassroom {
     return {
       title: 'Cadastro de turmas',
@@ -25,8 +39,8 @@ export class ClassroomsController {
     };
   }
 
-  @Post('/classrooms')
-  @Render('classrooms')
+  @Post('/turmas/cadastro')
+  @Render('classrooms-registration')
   async createClassroom(
     @Body() createClassroomDto: CreateClassroomDto,
   ): Promise<IClassroom> {
