@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IMDAZ - Gerenciamento de Estudantes | Turmas</title>
+    <link href="/css/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-neutral-200 min-h-screen min-w-screen py-6 flex flex-col items-center justify-center m-auto">
+    <main class="w-full max-w-[800px] m-auto">
+      <h1 class="text-3xl font-bold text-center">{{ title }}</h1>
+      <p class="text-lg text-center text-sky-800">{{ description }}</p>
+
+      {{#if response}}
+        {{#each response}}
+          <div class="bg-white p-6 mt-6 rounded shadow">
+            <ul>
+              <li class="border-b border-gray-300 mb-2">
+                <span class="text-sky-800 font-bold text-lg">Nome:</span> {{name}}
+              </li>
+              <li class="border-b border-gray-300 mb-2">
+                <span class="text-sky-800 font-bold text-lg">Descrição:</span> {{description}}
+              </li>
+              <li class="border-b border-gray-300 mb-2">
+                <span class="text-sky-800 font-bold text-lg">Turno:</span> {{period}}
+              </li>
+              <li class="border-b border-gray-300 mb-2">
+                <span class="text-sky-800 font-bold text-lg">Data início:</span> {{start_date}}
+              </li>
+              <li class="border-b border-gray-300 mb-2">
+                <span class="text-sky-800 font-bold text-lg">Data término:</span> {{end_date}}
+              </li>
+            </ul>
+          </div>
+        {{/each}}
+      {{else}}
+        <p class="mt-6 text-lg font-bold">Não há registros de turmas para serem exibidos.</p>
+      {{/if}}
+      <a href="/" class="mt-6 inline-block border border-sky-700 text-sky-700 bg-white font-bold px-8 py-4 rounded">
+        Voltar
+      </a>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IMDAZ - Gerenciamento de Estudantes | Página Inicial</title>
+    <link href="/css/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-neutral-200 min-h-screen min-w-screen p-6 flex flex-col items-center justify-center m-auto">
+    <main>
+      <h1 class="text-3xl font-bold text-center">{{ title }}</h1>
+      <p class="text-lg text-center text-sky-800">{{ description }}</p>
+
+      <nav class="max-w-[600px] m-auto">
+        <ul class="flex flex-col justify-center items-center gap-6 mt-12">
+          <li class="w-full">
+            <a 
+              href="/alunos" 
+              class="w-full bg-sky-700 rounded text-white px-6 py-4 text-center inline-block"
+            >Clique aqui para consultar a relação de alunos cadastrados.</a>
+          </li>
+          <li class="w-full">
+            <a 
+              href="/turmas"
+              class="w-full bg-sky-700 rounded text-white px-6 py-4 text-center inline-block"
+            >Clique aqui para consultar a relação de turmas cadastradas.</a>
+          </li>
+          <li class="w-full">
+            <a 
+              href="/turmas/cadastro" 
+              class="w-full bg-sky-700 rounded text-white px-6 py-4 text-center inline-block"
+            >Clique aqui para criar uma nova turma.</a>
+          </li>
+          <li class="w-full">
+            <a 
+              href="/alunos/matricula" 
+              class="w-full bg-sky-700 rounded text-white px-6 py-4 text-center inline-block"
+            >Clique aqui para acessar o formulário de matrícula.</a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

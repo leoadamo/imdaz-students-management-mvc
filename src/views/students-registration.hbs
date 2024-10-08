@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IMDAZ - Gerenciamento de Estudantes | Matrículas</title>
+    <link href="/css/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-neutral-200 min-h-screen min-w-screen p-6 flex flex-col items-center justify-center m-auto">
+    <main class="w-full max-w-[800px] m-auto">
+      <h1 class="text-3xl font-bold text-center">{{ title }}</h1>
+      <p class="text-lg text-center text-sky-800">{{ description }}</p>
+
+      {{#if response}}
+        <ul class="bg-white p-6 mt-6 rounded shadow">
+          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">Nome:</span> {{ response.name }}</li>
+          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">Telefone:</span> {{ response.phone }}</li>
+          <li class="border-b border-gray-300 mb-2"><span class="text-sky-800 font-bold text-lg">CPF:</span> {{ response.cpf }}</li>
+          <li><span class="text-sky-800 font-bold text-lg">Responsável:</span> {{ response.tutor_name }}</li>
+        </ul>
+        
+        <nav>
+          <ul class="grid grid-cols-2 gap-6 mt-6">
+            <li>
+              <a 
+                href="/alunos" 
+                class="w-full bg-sky-700 rounded text-white px-6 py-4 text-center inline-block"
+              >Listar todos os alunos</a>
+            </li>
+            <li>
+              <a 
+                href="/alunos/matricula" 
+                class="w-full bg-sky-700 rounded text-white px-6 py-4 text-center inline-block"
+              >Matricular um novo aluno</a>
+            </li>
+          </ul>
+        </nav>
+      {{else}}
+        <form action="/alunos/matricula" method="post" name="registration-form" class="bg-white px-10 py-8 rounded-lg shadow mt-6">
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Nome:</label>
+            <input id="name" name="name" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Gênero:</label>
+            <input id="gender" name="gender" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Etnia:</label>
+            <input id="ethnicity" name="ethnicity" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Data de nascimento</label>
+            <input id="date_of_birth" name="date_of_birth" type="date" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Possui alguma deficiência?</label>
+
+            <div>
+              <label for="disability">Sim</label>
+              <input id="yes" name="disability" type="radio" value="1" />
+            </div>
+
+            <div>
+              <label for="disability">Não</label>
+              <input id="no" name="disability" type="radio" value="0" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Telefone:</label>
+            <input id="phone" name="phone" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Turno:</label>
+            <input id="grade" name="grade" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Já está matriculado?</label>
+
+            <div>
+              <label for="literate">Sim</label>
+              <input id="literate-yes" name="literate" type="radio" value="1" />
+            </div>
+
+            <div>
+              <label for="literate">Não</label>
+              <input id="literate-no" name="literate" type="radio" value="0" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Endereço:</label>
+            <input id="address" name="address" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Bairro:</label>
+            <input id="neighborhood" name="neighborhood" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">CPF:</label>
+            <input id="cpf" name="cpf" type="text" autocomplete="off" maxlength="11" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">RG:</label>
+            <input id="rg" name="rg" type="text" autocomplete="off" maxlength="10" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Data de emissão do rg:</label>
+            <input id="rg_created_at" name="rg_created_at" type="date" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Quantidade de filhos:</label>
+            <input id="children" name="children" type="number" autocomplete="off" value="0" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Possui irmão ou irmã já matriculado(a)?</label>
+
+            <div>
+              <label for="brother_or_sis_registered">Sim</label>
+              <input id="brother_or_sis_registered-yes" name="brother_or_sis_registered" type="radio" value="1" />
+            </div>
+
+            <div>
+              <label for="brother_or_sis_registered">Não</label>
+              <input id="brother_or_sis_registered-no" name="brother_or_sis_registered" type="radio" value="0" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">NIS:</label>
+            <input id="nis" name="nis" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Nome da Escola:</label>
+            <input id="school_name" name="school_name" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Nome do(a) responsável:</label>
+            <input id="tutor_name" name="tutor_name" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Grau de parentesco do(a) responsável:</label>
+            <input id="tutor_kindship" name="tutor_kindship" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Renda mensal:</label>
+            <input id="earnings" name="earnings" type="text" autocomplete="off" class="border border-gray-300 p-3 w-full rounded" />
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Recebe algum benefício do governo?</label>
+
+            <div>
+              <label for="government_benefits">Sim</label>
+              <input id="government_benefits-yes" name="government_benefits" type="radio" value="1" />
+            </div>
+
+            <div>
+              <label for="government_benefits">Não</label>
+              <input id="government_benefits-no" name="government_benefits" type="radio" value="0" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="block mb-1 font-bold text-sky-800">Autoriza o uso da sua imagem?</label>
+
+            <div>
+              <label for="image_rights">Sim</label>
+              <input id="image_rights-yes" name="image_rights" type="radio" value="1" />
+            </div>
+
+            <div>
+              <label for="image_rights">Não</label>
+              <input id="image_rights-no" name="image_rights" type="radio" value="0" />
+            </div>
+          </div>
+
+          <button type="submit" aria-label="Cadastrar turma" class="mt-8 block w-full bg-sky-700 text-white font-bold p-4 rounded">
+            Cadastrar aluno
+          </button>
+        </form>
+        <a href="/" class="mt-6 inline-block border border-sky-700 text-sky-700 bg-white font-bold px-8 py-4 rounded">
+          Voltar
+        </a>
+      {{/if}}
+    </main>
+  </body>
+</html>

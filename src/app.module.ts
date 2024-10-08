@@ -1,10 +1,18 @@
+// DEPENDENCIES
+import { ConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
+// MODULES
+import { DatabaseModule } from './database/database.module';
+import { StudentsModule } from './students/students.module';
+import { ClassroomsModule } from './classrooms/classrooms.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({}),
+    DatabaseModule,
+    StudentsModule,
+    ClassroomsModule,
+  ],
 })
 export class AppModule {}
